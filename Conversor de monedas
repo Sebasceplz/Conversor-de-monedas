@@ -1,0 +1,126 @@
+from tkinter import*
+from PIL import ImageTk,Image
+
+
+root=Tk()
+root.title("Ejercicio B")
+root.geometry("450x450")
+ventanaprincipal=Frame(root,width=1000,height=1000,bg="gray")
+ventanaprincipal.grid()
+
+
+def ConvercionDeMoneda():
+
+
+        if (PrimerMoneda.get()=="USD"):
+            if(SegundaMoneda.get()=="MXN"):
+                R1=PrimerNumero.get()*18.4935
+                
+                pass
+        if (PrimerMoneda.get()=="USD"):
+            if(SegundaMoneda.get()=="ARG"):
+                R1=PrimerNumero.get()*200.74
+                
+                pass
+        pass
+        if (PrimerMoneda.get()=="MXN"):
+            if(SegundaMoneda.get()=="USD"):
+                R1=PrimerNumero.get()*0.0541
+                
+                pass
+        pass
+
+        if (PrimerMoneda.get()=="MXN"):
+            if(SegundaMoneda.get()=="ARG"):
+                R1=PrimerNumero.get()*10.8537
+                
+                pass
+        pass
+
+        if (PrimerMoneda.get()=="ARG"):
+            if(SegundaMoneda.get()=="USD"):
+                R1=PrimerNumero.get()*0.005
+                
+                pass
+        pass
+
+        if (PrimerMoneda.get()=="ARG"):
+            if(SegundaMoneda.get()=="MXN"):
+                R1=PrimerNumero.get()*0.0921
+                
+                pass
+        pass
+        return SPR1.set(R1)
+        pass
+
+Titulo=Label(ventanaprincipal,
+             text="Convertido de Monedas",
+             font=("Times",14,"bold"),
+             background="gray",#color de fondo
+             foreground="black", #color de letras
+             width=18,#espacios en X
+             height=2, #espacios en Y
+             
+             #anchor=N, #mover a los lados
+             justify=CENTER,
+             
+            ).place(x=120,y=1)
+
+NumeroA=Label(ventanaprincipal,
+             text="Numero A:",
+             font=("Times",14,"bold"),
+             background="gray",#color de fondo
+             foreground="black", #color de letras
+             width=8,#espacios en X
+             height=2, #espacios en Y
+             
+             #anchor=N, #mover a los lados
+             justify=CENTER,
+             
+            ).place(x=1,y=108)
+
+PrimerNumero=IntVar()
+
+textNumeroA=Entry(ventanaprincipal,font=("Times",12),textvariable=PrimerNumero).place(x=160,y=119)
+
+PrimerMoneda=StringVar()
+PrimerMoneda.set("Moneda")
+drop=OptionMenu(root,PrimerMoneda,"USD","MXN","ARG").place(x=80,y=200)
+
+
+SegundaMoneda=StringVar()
+SegundaMoneda.set("Moneda")
+drop=OptionMenu(root,SegundaMoneda,"USD","MXN","ARG").place(x=280,y=200)
+
+ResltadoMoneda=Label(ventanaprincipal,
+             text="Resultado",
+             font=("Times",14,"bold"),
+             background="gray",#color de fondo
+             foreground="black", #color de letras
+             width=8,#espacios en X
+             height=2, #espacios en Y
+             
+             #anchor=N, #mover a los lados
+             justify=CENTER,
+             
+            ).place(x=1,y=370)
+
+SPR1=StringVar()
+
+#######################################3
+Resultadofinal=Label(ventanaprincipal,
+             textvariable=SPR1,
+             font=("Times",14,"bold"),
+             background="gray",#color de fondo
+             foreground="black", #color de letras
+             width=19,#espacios en X
+             height=4, #espacios en Y
+             #anchor=N, #mover a los lados
+             justify=CENTER,
+             
+            ).place(x=150,y=350)
+
+#Boton para registrar
+ButtonRegistrar=Button(ventanaprincipal,font=("Times",14,"bold"),text="REGISTRAR",command=ConvercionDeMoneda).place(x=160,y=300)
+
+root.mainloop()
